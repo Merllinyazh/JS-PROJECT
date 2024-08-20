@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Guessing Game</title>
+    <style>
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff6347; }
+            25% { color: #ffa500; }
+            50% { color: #32cd32; }
+            75% { color: #1e90ff; }
+            100% { color: #ff6347; }
+        }
+
+        body {
+            font-family: 'Broadway';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("g1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(197, 38, 10, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            animation: bounce 2s infinite;
+            width: 600px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            animation: colorChange 5s infinite alternate;
+            letter-spacing: 5px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            border-radius: 10px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1> GUESSING GAME!</h1>
+    <button onclick="window.location.href='game.html'">Start Game</button>
+</div>
+
+</body>
+</html>

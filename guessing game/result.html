@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Result</title>
+    <style>
+        @keyframes popOut {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes dance {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-10px);
+            }
+            40% {
+                transform: translateX(10px);
+            }
+            60% {
+                transform: translateX(-10px);
+            }
+            80% {
+                transform: translateX(10px);
+            }
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("g2.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(34, 139, 34, 0.0);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            width: 600px;
+            animation: popOut 1s ease-out forwards;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            animation: dance 1s infinite;
+        }
+
+        #hooray {
+            font-size: 64px;
+            color: rgb(249, 47, 11);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: popOut 5s ease-out forwards 0.5s;
+        }
+
+        p {
+            font-size: 28px;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            border-radius: 10px;
+            border: none;
+            background-color: #d5c20e;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="hooray">🎉 Hooray!!!!! 🎉</div>
+    <h1>🎉 Congratulations! You Won! 🎉</h1>
+    <p id="score-display">Your Score: </p>
+    <button onclick="window.location.href='game.html'">Play Again</button>
+    <button onclick="window.location.href='welcome.html'">Back to Home</button>
+</div>
+
+<script>
+    var params = new URLSearchParams(window.location.search);
+    var status = params.get('status');
+    var score = params.get('score');
+    var scoreDisplay = document.getElementById('score-display');
+
+    if (status === 'win') {
+        scoreDisplay.textContent = 'Your Score: ' + score;
+    } else {
+        document.querySelector('#hooray').textContent = '😞 Oh No!!!!! 😞';
+        document.querySelector('h1').textContent = '😞 You Lost! Better Luck Next Time! 😞';
+    }
+</script>
+
+</body>
+</html>
